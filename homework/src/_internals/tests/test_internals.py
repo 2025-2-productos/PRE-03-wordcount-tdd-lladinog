@@ -1,8 +1,11 @@
+# import os
+# import shutil
 import os
 import shutil
 import subprocess
 import sys
 
+from ...wordcount import parse_args
 from ...wordcount import parse_args
 from ..count_words import count_words
 from ..preprocess_lines import preprocess_lines
@@ -71,6 +74,7 @@ def test_write_word_counts():
     if os.path.exists(output_folder):
         shutil.rmtree(output_folder)
 
+    write_word_counts(word_counts, output_folder)
     write_word_counts(word_counts, output_folder)
 
     output_file = os.path.join(output_folder, "wordcount.tsv")
